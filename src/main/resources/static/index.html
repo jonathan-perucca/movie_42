@@ -1,15 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"
+      ng-app="movieApp">
 <head>
     <meta charset="UTF-8">
     <title>Movie 42</title>
 </head>
-<body>
+<body ng-controller="MovieController">
     <p>Liste des films</p>
+
     <ol>
-        <li>Le voyage de Chihiro</li>
-        <li>Princesse Mononoke</li>
-        <li>Braindead</li>
+        <li ng-repeat="movie in movies">
+            {{ movie.title }}
+        </li>
     </ol>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/movieService.js"></script>
 </body>
 </html>
