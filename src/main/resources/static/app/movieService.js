@@ -5,16 +5,23 @@ angular.module('movieApp')
 function($http) {
 
     return {
-        getMovies: getMovies
+        getMovies: getMovies,
+        saveMovie: saveMovie
     };
 
     function getMovies() {
         return $http
             .get("/movies")
             .then(movieData);
+    }
 
-        function movieData(response) {
-            return response.data;
-        }
+    function saveMovie(movie) {
+        return $http
+            .post("/movies", movie)
+            .then(movieData)
+    }
+
+    function movieData(response) {
+        return response.data;
     }
 }]);
